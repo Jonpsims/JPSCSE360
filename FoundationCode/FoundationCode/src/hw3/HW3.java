@@ -3,7 +3,7 @@ public class HW3 {
 
     
     //too short (less than 8 characters)
-    public static void testPasswordTooShort() {
+    public static void testPassTooShort() {
         String input = "A1b!";
         String result = application.PasswordEvaluator.evaluatePassword(input);
         System.out.println("Test Password Too Short: " + result);
@@ -11,14 +11,14 @@ public class HW3 {
 
     
     //missing uppercase letters
-    public static void testPasswordMissingUppercase() {
+    public static void testPassMissingUppercase() {
         String input = "abc123!@";
         String result = application.PasswordEvaluator.evaluatePassword(input);
         System.out.println("Test Missing Uppercase: " + result);
     }
 
     //missing lowercase letters
-    public static void testPasswordMissingLowercase() {
+    public static void testPassMissingLowercase() {
         String input = "ABC123!@";
         String result = application.PasswordEvaluator.evaluatePassword(input);
         System.out.println("Test Missing Lowercase: " + result);
@@ -26,7 +26,7 @@ public class HW3 {
 
     
     //missing digits
-    public static void testPasswordMissingDigit() {
+    public static void testPassMissingDigit() {
         String input = "Abcdef!@";
         String result = application.PasswordEvaluator.evaluatePassword(input);
         System.out.println("Test Missing Digit: " + result);
@@ -34,7 +34,7 @@ public class HW3 {
 
 
     //missing special characters
-    public static void testPasswordMissingSpecialChar() {
+    public static void testPassMissingSpecialChar() {
         String input = "Abcdef12";
         String result = application.PasswordEvaluator.evaluatePassword(input);
         System.out.println("Test Missing Special Char: " + result);
@@ -43,10 +43,10 @@ public class HW3 {
 
     //eexecute test cases
     public static void main(String[] args) {
-        testPasswordTooShort();
-        testPasswordMissingUppercase();
-        testPasswordMissingLowercase();
-        testPasswordMissingDigit();
-        testPasswordMissingSpecialChar();
+        testPassTooShort();
+        testPassMissingUppercase();
+        testPassMissingLowercase();
+        testPassMissingDigit();
+        testPassMissingSpecialChar();
     }
 }
