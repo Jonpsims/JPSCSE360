@@ -1,5 +1,3 @@
-The Screencast is at the link here:  https://youtu.be/JPloSKqG75E
-
-The Javadoc is in the docs/HW3Javadoc
-
- 
+Screencast is here: 
+Javadoc is in doc here : doc/index.html
+JUnit is in the main files here: Phase-3/Phase 3-src/QuestionAnswerSystem/QASystemDatabaseTest.java
