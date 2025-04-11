@@ -434,6 +434,14 @@ public class QASystemDatabase {
 		
 		//Staff functions
 		
+		
+
+	    /**
+	     * Adds a staff comment to an answer.
+	     *
+	     * @param answerId the answer ID to comment on
+	     * @param commentText the comment content
+	     */
 		public void addStaffComment(int answerId, String commentText) {
 		    try {
 		        String sql = "CREATE TABLE IF NOT EXISTS staffCommentTable (id INT AUTO_INCREMENT PRIMARY KEY, aID INT, comment TEXT, FOREIGN KEY (aID) REFERENCES answerTable(id))";
@@ -450,6 +458,14 @@ public class QASystemDatabase {
 		    }
 		}
 		
+		
+
+	    /**
+	     * Returns a list of staff comments associated with an answer ID.
+	     *
+	     * @param answerId the answer ID to look up
+	     * @return list of comments
+	     */
 		public ArrayList<String> getStaffCommentsByAID(int answerId) {
 		    ArrayList<String> comments = new ArrayList<>();
 		    try {
@@ -467,7 +483,12 @@ public class QASystemDatabase {
 		}
 
 
-		
+		 /**
+	     * Flags a user by username for review or moderation.
+	     * Creates the flaggedUsers table if it does not exist.
+	     * 
+	     * @param username the username to flag
+	     */
 		public void flagUser(String username) {
 		    try {
 		        String sql = "CREATE TABLE IF NOT EXISTS flaggedUsers (id INT AUTO_INCREMENT PRIMARY KEY, username VARCHAR(255))";
@@ -483,6 +504,12 @@ public class QASystemDatabase {
 		    }
 		}
 
+		
+		/**
+	     * Removes a previously flagged user from the flaggedUsers table.
+	     * 
+	     * @param username the username to unflag
+	     */
 		public void unflagUser(String username) {
 		    try {
 		        String sql = "DELETE FROM flaggedUsers WHERE username = ?";
@@ -512,6 +539,12 @@ public class QASystemDatabase {
 		    }
 		}
 
+
+	    /**
+	     * Deletes all staff comments associated with a specific answer ID.
+	     *
+	     * @param aid the answer ID
+	     */
 		public void deleteStaffCommentsByAnswerId(int aid) throws SQLException {
 		    String sql = "DELETE FROM staffCommentTable WHERE aID = ?";
 		    try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
@@ -522,6 +555,13 @@ public class QASystemDatabase {
 		}
 
 		
+
+	    /**
+	     * Checks if a given user is currently flagged.
+	     * 
+	     * @param username the username to check
+	     * @return true if flagged, false otherwise
+	     */
 		public boolean isUserFlagged(String username) {
 		    try {
 		        String sql = "CREATE TABLE IF NOT EXISTS flaggedUsers (id INT AUTO_INCREMENT PRIMARY KEY, username VARCHAR(255))";
@@ -647,4 +687,3 @@ public class QASystemDatabase {
 		}
 
 
-	}
